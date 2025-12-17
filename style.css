@@ -1,16 +1,23 @@
 /* A */
 .aside-left {
     flex: 1;
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
+.avatar {
+    border: 1px solid;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
 .aside-right {
-    border: 1px solid red;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
     width: 100%;
     flex: 1.6;
+    padding: 40px;
 }
 
 /* B */
@@ -69,8 +76,8 @@
 
 /* C */
 .container {
-    height: 100vh;
     max-width: 100%;
+    padding: 20px;
 }
 
 .container-buttons,
@@ -125,17 +132,30 @@
     gap: 30px;
 }
 
-.container-grid {
+.container-gridBox {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 5px;
+
+}
+
+.container-grid {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
     padding: 23px;
     border-radius: 14px;
+    padding: 8px 23px;
 }
 
-/* D */
+.container-search {
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
+    height: 100px;
+
+    padding: 17px;
+}
+
 .container-details {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
     max-width: 490px;
@@ -147,7 +167,21 @@
     padding: 25px;
 }
 
+.container-avatar {
+    display: flex;
+    gap: 10px;
+}
+
+/* D */
+
 /* I */
+
+.img-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
 .informacion-user {
     font-weight: 600;
     text-align: left;
@@ -163,6 +197,27 @@
 .image-grid {
     width: 145px;
     height: 145px;
+}
+
+.input-search {
+    border: none;
+    border-radius: 20px;
+    background-color: #e4e6eb;
+    padding-left: 20px;
+    outline: none;
+    width: 100%;
+}
+
+/* L */
+.line-search {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent,
+            #ddd,
+            transparent);
+    margin: 16px 0;
+
 }
 
 /* M */
@@ -235,4 +290,51 @@
         overflow-x: auto;
         gap: 10px;
     }
+}
+
+@media (max-width: 967px) {
+    .container-content {
+        flex-direction: column-reverse;
+    }
+    .aside-right {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 1056px) {
+    .container-details {
+        max-width: 400px;
+    }
+
+    .container-grid {
+        max-width: 400px;
+        overflow: hidden;
+    }
+
+    .image-grid {
+        width: 97px;
+        height: 97px;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .container-details {
+        max-width: 100%;
+    }
+
+    .container-grid {
+        max-width: 100%;
+        overflow: hidden;
+        display: none
+    }
+
+    .image-grid {
+        width: 97px;
+        height: 97px;
+    }
+
+    
+
 }

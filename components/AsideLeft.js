@@ -1,14 +1,15 @@
 import GridImage from "./GridImage.js";
+import Search from "./Search.js";
 function AsideLeft() {
     const containerAsides = document.querySelector("#asides-container");
 
     const containerMax = document.createElement("div");
     containerMax.classList.add("max-container-aside")
-
+     
 
     const containerContent = document.createElement("div");
     containerContent.classList.add("container-content");
-
+   
 
     const containerDetails = document.createElement("div");
     containerDetails.classList.add("container-details")
@@ -34,6 +35,7 @@ function AsideLeft() {
 
     GridImage(leftAside)
     createButtonsDetails(containerDetails)
+    Search(rightAside)
 
 }
 
