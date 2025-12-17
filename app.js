@@ -4,6 +4,7 @@ import CarruselProjects from "./components/CarruselProjects.js";
 import PortfolioTabs from "./components/PortfolioTabs.js";
 import AsideLeft from "./components/AsideLeft.js";
 import GridImage from "./components/GridImage.js";
+import Search from "./components/Search.js";
 
 
 document.addEventListener('DOMContentLoaded',  function(e) {
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded',  function(e) {
     PortfolioTabs();
     AsideLeft();
     GridImage()
+    Search()
 })
 
 
