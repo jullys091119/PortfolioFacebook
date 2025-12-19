@@ -14,10 +14,9 @@
 }
 
 .aside-right {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
     width: 100%;
     flex: 1.6;
-    padding: 40px;
+
 }
 
 /* B */
@@ -148,11 +147,10 @@
 }
 
 .container-search {
-    max-width: 600px;
     margin: auto;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
     height: 100px;
-
+    border-radius: 14px;
     padding: 17px;
 }
 
@@ -170,6 +168,27 @@
 .container-avatar {
     display: flex;
     gap: 10px;
+}
+
+.container-avatar-posts {
+    display: flex;
+    align-items: center;
+    padding: 7px;
+}
+
+.container-date {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-family: "Montserrat";
+}
+
+.container-input {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+
 }
 
 /* D */
@@ -208,6 +227,34 @@
     width: 100%;
 }
 
+.image-container-posts {
+    width: 100%;
+    overflow: hidden;
+}
+
+.img-post {
+    width: 729px;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.image-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+#input-comments {
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e4e6eb;
+    padding-left: 20px;
+    outline: none;
+    width: 100%;
+}
+
+
 /* L */
 .line-search {
     border: none;
@@ -239,6 +286,7 @@
     position: absolute;
     bottom: 30px;
     left: 30px;
+    max-width: 210px;
 }
 
 .perfil-container {
@@ -284,6 +332,19 @@
     border-bottom: 3px solid #1877f2;
 }
 
+.posts-container {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
+    max-width: 100%;
+    margin: 16px 0;
+    border-radius: 14px;
+}
+
+.post-data-user-header {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
 
 @media (max-width: 600px) {
     .portfolio-tabs-nav {
@@ -294,9 +355,14 @@
 
 @media (max-width: 967px) {
     .container-content {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
+
     .aside-right {
+        width: 100%;
+    }
+
+    .img-post {
         width: 100%;
     }
 }
@@ -335,6 +401,6 @@
         height: 97px;
     }
 
-    
+
 
 }

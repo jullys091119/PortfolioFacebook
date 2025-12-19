@@ -36,7 +36,6 @@ function AsideLeft() {
     GridImage(leftAside)
     createButtonsDetails(containerDetails)
     Search(rightAside)
-
 }
 
 
