@@ -12,8 +12,9 @@ function GridImage(leftAside) {
     title.style.margin=" 10px 0"
     
     containerGrid.append(title)
+    if(!leftAside) return
     leftAside.appendChild(containerGrid);
-
+    
     containerGrid.appendChild(containerGridBox)
 
 

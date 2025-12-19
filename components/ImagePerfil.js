@@ -23,12 +23,12 @@ async function ImagePerfil() {
     image.style.borderRadius="100%"
     image.classList.add("perfil-image")
     
-    
     containerPerfil.append(image);
     
     containerPerfil.appendChild(name)
     containerPerfil.appendChild(informacionUser)
     containerBanner.append(containerPerfil) 
+    
 
     
 }
