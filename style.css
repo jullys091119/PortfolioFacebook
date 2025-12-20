@@ -16,7 +16,6 @@
 .aside-right {
     width: 100%;
     flex: 1.6;
-
 }
 
 /* B */
@@ -60,9 +59,9 @@
 }
 
 .banner-container {
-    display: flex;
+    /*     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .button-details {
@@ -76,7 +75,6 @@
 /* C */
 .container {
     max-width: 100%;
-    padding: 20px;
 }
 
 .container-buttons,
@@ -188,10 +186,27 @@
     padding: 10px;
     align-items: center;
     gap: 10px;
-
 }
 
+.container-max-perfil {
+    display: flex;
+    gap: 30px;
+}
+
+/* .container-informacion-user {
+    max-width: 100%;
+    border: 1px solid;
+    width: 100%;
+
+} */
+
 /* D */
+.div-banner-container {
+    /*      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
 
 /* I */
 
@@ -203,9 +218,6 @@
 
 .informacion-user {
     font-weight: 600;
-    text-align: left;
-    align-self: start;
-    margin-left: 136px;
     font-family: "Montserrat";
 }
 
@@ -254,6 +266,13 @@
     width: 100%;
 }
 
+.information-user-div {
+    padding-left: 30px;
+}
+
+.information-user-div > h1 {
+   margin-top: 0;
+}
 
 /* L */
 .line-search {
@@ -283,19 +302,14 @@
 
 /* P */
 .perfil-image {
-    position: absolute;
-    bottom: 30px;
+    max-width: 170px;
+    position: relative;
+    top: -113px;
     left: 30px;
-    max-width: 210px;
 }
 
 .perfil-container {
-    padding: 0px 105px;
-    max-width: 633px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
 .portfolio-tabs-header {
@@ -353,6 +367,30 @@
     }
 }
 
+@media (min-width: 344px) and (max-width: 583px) {
+    .perfil-image {
+        max-height: 112px;
+        max-width: 112px;
+        top: -80px;
+        left: 0;
+    }
+
+    .perfil-container {
+        /* display: flex; */
+        margin-top: -100px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .information-user-div {
+    padding-left: 0;
+}
+ 
+
+
+}
+
+
 @media (max-width: 967px) {
     .container-content {
         flex-direction: column;
@@ -364,6 +402,10 @@
 
     .img-post {
         width: 100%;
+    }
+
+    .banner-image {
+        max-height: 350px;
     }
 }
 

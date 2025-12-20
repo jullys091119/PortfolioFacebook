@@ -3,6 +3,7 @@ import { carruselListeners } from "../listeners/listeners.js";
 async function CarruselProjects() {
     let direction;
     const container = document.querySelector(".max-container-projects");
+    const maxContainer = document.querySelector(".max-container");
     const containerCarrusel = document.createElement("div");
     containerCarrusel.classList.add("container-carrusel");
 
@@ -10,7 +11,7 @@ async function CarruselProjects() {
     const btnNext = document.createElement("button")
     btnPrev.classList.add("btn-prev")
     btnNext.classList.add("btn-next")
-
+    
     const chevronNext = document.createElement("img");
     chevronNext.src = "./img/next.png";
     chevronNext.style.height = "10px"
@@ -19,7 +20,7 @@ async function CarruselProjects() {
     chevronPrev.src = "./img/left-chevron.png";
     chevronPrev.style.height = "15px"
     chevronPrev.style.width = "15px"
-
+    
     btnNext.appendChild(chevronNext);
     btnPrev.appendChild(chevronPrev);
 
@@ -27,7 +28,7 @@ async function CarruselProjects() {
 
     const containerButtons = document.createElement("div")
     containerButtons.classList.add("container-buttons")
-
+    
     const carruselHeader = document.createElement("header");
     carruselHeader.classList.add("carrusel-header");
     carruselHeader.textContent = "Mis proyectos"
@@ -52,7 +53,8 @@ async function CarruselProjects() {
     carruselListeners(btnNext, containerCarrusel, direction, itemWidth)
     direction = -1;
     carruselListeners(btnPrev, containerCarrusel, direction, itemWidth)
-
+    
+    maxContainer.appendChild(container)
 }
 
 async function showCardsCarrusel() {
