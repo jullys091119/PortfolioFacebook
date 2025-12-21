@@ -1,5 +1,5 @@
 import { db } from "./firebase.js";
-import { collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { collection, getDocs, addDoc, serverTimestamp, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 export async function getPerfilImages() {
     const querySnapshot = await getDocs(collection(db, "perfil"));
@@ -43,4 +43,29 @@ export async function setProjects() {
     console.log("Document written with ID: ", docRef.id);
 }
 
-/*  setProjects() */
+export async function addComments(texto, projectId) {
+    await addDoc(
+        collection(db, "comentarios", projectId, "comments"),
+        {
+            texto,
+            usuario: "Anon",
+            fecha: serverTimestamp()
+        }
+    );
+}
+
+
+export async function getComments(idPostComments) {
+    const q = query(
+        collection(db, "comentarios", idPostComments, "comments"),
+        orderBy("fecha", "asc")
+    ); 
+
+    const snapshot = await getDocs(q);
+
+    const comments = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+    return comments;
+
+
+}
