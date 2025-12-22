@@ -7,7 +7,6 @@
 }
 
 .avatar {
-
     width: 40px;
     height: 40px;
     border-radius: 100%;
@@ -181,6 +180,11 @@
     font-family: "Montserrat";
 }
 
+.container-date>.name-post,
+.date-post-main {
+    margin: 3px;
+}
+
 .container-input {
     display: flex;
     padding: 10px;
@@ -198,12 +202,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
+    border-bottom: none;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+
 }
 
 .container-comments {
     display: none;
-    max-width: 80%;
     padding: 10px;
 }
 
@@ -221,7 +227,7 @@
     padding: 16px;
     background-color: rgb(240, 242, 245);
     font-family: Poppins;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 
@@ -232,6 +238,21 @@
     gap: 11px;
     align-items: center;
     justify-content: center;
+}
+
+.description-post {
+    font-family: "Montserrat";
+    margin: 0;
+}
+
+.description-container {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    padding: 10px 20px;
+}
+
+.date-post {
+    font-size: 10px;
 }
 
 /* I */
@@ -285,13 +306,13 @@
 }
 
 .input-comment {
-    height: 30px;
     border: none;
     border-radius: 20px;
     background-color: #e4e6eb;
     padding-left: 20px;
     outline: none;
     width: 100%;
+    height: 40px;
 }
 
 .information-user-div {
@@ -303,7 +324,7 @@
 }
 
 .icon-color {
-    color:  #dbdee8;
+    color: #dbdee8;
 }
 
 /* L */
@@ -334,12 +355,16 @@
 
 .max-container-projects {
     position: relative;
+    margin-top: 15px;
 }
 
 .max-container-aside {
     max-width: 1250px;
     margin: auto;
 }
+
+
+/* N */
 
 /* P */
 .perfil-image {
@@ -410,9 +435,9 @@
 
 @media (min-width: 344px) and (max-width: 583px) {
     .perfil-image {
-        max-height: 112px;
-        max-width: 112px;
-        top: -80px;
+        max-height: 160px;
+        max-width: 160px;
+        top: -140px;
         left: 0;
     }
 
@@ -424,9 +449,20 @@
     }
 
     .information-user-div {
-        padding-left: 0;
+        padding-left: 20px;
+        margin-top: -30px;
+    }
+    
+    .portfolio-tabs-header {
+        display: none;
     }
 
+    .aside-left {
+            padding: 20px 0;
+    }
+    /*    .container-details, .portfolio-tabs-header, .container-carrusel,.carrusel-header, .btn-next, .btn-prev { 
+        display: none;
+    } */
 
 
 }
@@ -473,11 +509,7 @@
         max-width: 100%;
     }
 
-    .container-grid {
-        max-width: 100%;
-        overflow: hidden;
-        display: none
-    }
+
 
     .image-grid {
         width: 97px;
