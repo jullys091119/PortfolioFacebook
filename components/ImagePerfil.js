@@ -9,22 +9,27 @@ async function ImagePerfil() {
     name.textContent = data.nombre
     name.style.marginBottom = 0;
     name.style.fontFamily="Montserrat";
-    
+
+  
     const informationUserDiv = document.createElement("div");
     informationUserDiv.classList.add("information-user-div");
 
+  
     const informacionUser = document.createElement("p");
     informacionUser.textContent = `🖥️ ${data.biografia}💻`;
-    informacionUser.classList.add("informacion-user")
-    
+    informacionUser.classList.add("informacion-user");
+
+  
+
     const containerPerfil = document.createElement("div");
     containerPerfil.classList.add("perfil-container")
 
     const image = document.createElement("img");
-    image.src = data.imagePerfil
+    image.src = data.imagePerfil;
     image.alt = "Imagen de perfil";
-    image.style.borderRadius="100%"
-    image.classList.add("perfil-image")
+    image.style.borderRadius="100%";
+    image.classList.add("perfil-image");
+
     
     containerBanner.append(containerPerfil) 
     containerPerfil.appendChild(image);
@@ -35,6 +40,16 @@ async function ImagePerfil() {
     informationUserDiv.appendChild(name)
     informationUserDiv.appendChild(informacionUser)
     
+   /*  let danger = document.createElement("p");
+    danger.classList="danger-delete"
+    danger = "Proyecto en desarrollo";
+    informationUserDiv.append(danger) */
+
+    const danger = document.createElement("p");
+    danger.classList.add("danger-delete");
+    danger.textContent = "Proyecto en desarrollo";
+
+    informationUserDiv.appendChild(danger)
 
     
     

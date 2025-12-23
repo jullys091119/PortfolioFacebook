@@ -1,5 +1,5 @@
 import { getProjects } from "../queriesFirebase.js";
-import { carruselListeners } from "../listeners/listeners.js";
+import { carruselListeners, showProject } from "../listeners/listeners.js";
 async function CarruselProjects() {
     let direction;
     const container = document.querySelector(".max-container-projects");
@@ -11,7 +11,7 @@ async function CarruselProjects() {
     const btnNext = document.createElement("button")
     btnPrev.classList.add("btn-prev")
     btnNext.classList.add("btn-next")
-    
+
     const chevronNext = document.createElement("img");
     chevronNext.src = "./img/next.png";
     chevronNext.style.height = "10px"
@@ -20,7 +20,7 @@ async function CarruselProjects() {
     chevronPrev.src = "./img/left-chevron.png";
     chevronPrev.style.height = "15px"
     chevronPrev.style.width = "15px"
-    
+
     btnNext.appendChild(chevronNext);
     btnPrev.appendChild(chevronPrev);
 
@@ -28,53 +28,68 @@ async function CarruselProjects() {
 
     const containerButtons = document.createElement("div")
     containerButtons.classList.add("container-buttons")
-    
+
     const carruselHeader = document.createElement("header");
     carruselHeader.classList.add("carrusel-header");
     carruselHeader.textContent = "Mis proyectos"
 
-    
+
     container.appendChild(containerButtons)
-    
-    
+
+
     containerButtons.appendChild(btnPrev)
     containerButtons.appendChild(btnNext)
-    
+
     container.appendChild(containerCarrusel)
-    
-    
-    
+
+
+
     showCardsCarrusel()
-    
+
     const itemWidth = await showCardsCarrusel(containerCarrusel);
-    
+
     containerButtons.appendChild(carruselHeader)
     direction = + 1
     carruselListeners(btnNext, containerCarrusel, direction, itemWidth)
     direction = -1;
     carruselListeners(btnPrev, containerCarrusel, direction, itemWidth)
-    
+
     maxContainer.appendChild(container)
 }
+
 
 async function showCardsCarrusel() {
     const data = await getProjects();
     const containerCarrusel = document.querySelector(".container-carrusel");
     containerCarrusel.innerHTML = "";
     data.map((item) => {
+        const containerImageCarrusel = document.createElement("div");
+        containerImageCarrusel.classList = "container-image-carrusel"
         const imagenCarrusel = document.createElement("img");
-        imagenCarrusel.src = item.image
+        imagenCarrusel.src = `https://cdn.jsdelivr.net/gh/${item.image}`;
         imagenCarrusel.alt = "Imagen proyecto Julián Ontiveros";
         imagenCarrusel.classList.add("image-carrusel");
+        containerImageCarrusel.appendChild(imagenCarrusel)
+
         const carruselCard = document.createElement("div");
         carruselCard.classList.add("carrusel-card")
-        carruselCard.appendChild(imagenCarrusel)
+        carruselCard.appendChild(containerImageCarrusel)
         const nombreProyecto = document.createElement("p");
         nombreProyecto.textContent = item.titulo
         nombreProyecto.classList.add("nombre-proyecto");
-        carruselCard.appendChild(nombreProyecto)
 
-        containerCarrusel.appendChild(carruselCard)
+        const iconEye = document.createElement("i");
+        iconEye.classList = "bi bi-eye-fill"
+        const button = document.createElement("button");
+        button.setAttribute("type", "button");
+        button.classList = "btn btn-primary button-eye";
+        button.textContent = "Ver proyecto"
+
+        carruselCard.append(nombreProyecto, button)
+        containerCarrusel.append(carruselCard)
+        button.prepend(iconEye)
+
+        showProject(button, item.links)
 
     })
     const itemWidth = containerCarrusel.querySelector(".carrusel-card").offsetWidth + 10;
