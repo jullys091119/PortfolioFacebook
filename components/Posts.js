@@ -17,21 +17,20 @@ export default async function Posts() {
         const { post, inputComments, containerComments, containerReaction, datePostMain } = createPost(element, i, avatarURL);
         containerPosts.appendChild(post);
 
-        // Renderiza comentarios y actualiza contador
+ 
         const comments = await getComments(post.id);
         renderComments(comments, containerComments, avatarURL);
         updateCommentCount(containerReaction, comments.length);
 
-        // Icono y listener para enviar comentario
+     
         const iconSend = post.querySelector(`.icon-send-${i}`);
         sendComment(iconSend, containerComments, inputComments, post.id);
 
-        // Likes: inicializa contador y toggle
         const iconThumb = containerReaction.querySelector(".bi-hand-thumbs-up-fill");
         const spanLike = containerReaction.querySelector(".div-container-thumb span");
         likePost(iconThumb, spanLike, post.id, userId);
 
-        // Formatea fecha del post
+     
         formatDate(datePostMain, element);
     }
 }
@@ -57,7 +56,7 @@ function createPost(element, i, avatarURL) {
     const imageContainerPost = document.createElement("div");
     imageContainerPost.className = "image-container-posts";
     const imgPost = document.createElement("img");
-    imgPost.src = element.image;
+    imgPost.src = `https://cdn.jsdelivr.net/gh/${element.image}` ;
     imgPost.className = "img-post";
     imageContainerPost.appendChild(imgPost);
 

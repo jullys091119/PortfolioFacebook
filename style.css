@@ -71,9 +71,17 @@
     border: none;
 }
 
+.button-eye {
+    display: flex !important;
+    gap: 10px !important;
+    margin-bottom: 21px !important;
+}
+
 /* C */
 .container {
     max-width: 100%;
+    background-color: black;
+    color: white;
 }
 
 .container-buttons,
@@ -102,6 +110,11 @@
     border-radius: 9px;
     overflow: hidden;
     flex: 0 0 180px;
+    background: rgb(28, 30, 33);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-carrusel {
@@ -141,6 +154,7 @@
     padding: 23px;
     border-radius: 14px;
     padding: 8px 23px;
+    background: rgb(28, 30, 33);
 }
 
 .container-search {
@@ -149,6 +163,7 @@
     height: 100px;
     border-radius: 14px;
     padding: 17px;
+    background: rgb(28, 30, 33);
 }
 
 .container-details {
@@ -160,6 +175,7 @@
     flex-direction: column;
     gap: 30px;
     padding: 25px;
+    background: rgb(28, 30, 33);
 }
 
 .container-avatar {
@@ -225,10 +241,13 @@
     overflow-wrap: anywhere;
     border-radius: 22px;
     padding: 16px;
-    background-color: rgb(240, 242, 245);
+    background-color: rgb(30 33 37);
     font-family: Poppins;
     font-size: 13px;
 }
+
+
+.container-image-carrusel {}
 
 
 /* D */
@@ -262,7 +281,10 @@
     height: 40px;
     border-radius: 100%;
 }
-
+.danger-delete {
+    color: red !important;
+    font-size: 23px;
+}
 
 
 .informacion-user {
@@ -272,6 +294,10 @@
 
 .image-carrusel {
     max-width: 100%;
+    max-height: 211px;
+    height: 192px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .image-grid {
@@ -295,7 +321,7 @@
 
 .img-post {
     width: 729px;
-    max-height: 400px;
+    max-height: 600px;
     object-fit: cover;
 }
 
@@ -365,6 +391,9 @@
 
 
 /* N */
+.nombre-proyecto {
+    margin-top: 8px;
+}
 
 /* P */
 .perfil-image {
@@ -417,6 +446,7 @@
     max-width: 100%;
     margin: 16px 0;
     border-radius: 14px;
+    background: rgb(28, 30, 33);
 }
 
 .post-data-user-header {
@@ -452,14 +482,15 @@
         padding-left: 20px;
         margin-top: -30px;
     }
-    
+
     .portfolio-tabs-header {
         display: none;
     }
 
     .aside-left {
-            padding: 20px 0;
+        padding: 20px 0;
     }
+
     /*    .container-details, .portfolio-tabs-header, .container-carrusel,.carrusel-header, .btn-next, .btn-prev { 
         display: none;
     } */

@@ -7,9 +7,7 @@ if (!userId) {
     localStorage.setItem("userId", userId);
 }
 
-// -----------------------------
-// Enviar comentario
-// -----------------------------
+
 export function sendComment(iconSend, containerComments, inputComments, postId) {
     iconSend.addEventListener("click", async () => {
         const texto = inputComments.value.trim();
@@ -50,11 +48,16 @@ export async function likePost(iconThumb, spanLike, postId) {
     });
 }
 
-// -----------------------------
-// Carrusel
-// -----------------------------
 export function carruselListeners(btn, container, direction, itemWidth) {
     btn.addEventListener("click", () => {
         container.scrollLeft += itemWidth * direction;
     });
+}
+
+
+export function showProject (button,url) {
+    button.addEventListener("click", () => {
+        window.open(url)
+    } )
+
 }
