@@ -43,7 +43,6 @@ async function CarruselProjects() {
     container.appendChild(containerCarrusel)
 
 
-
     showCardsCarrusel()
 
     const itemWidth = await showCardsCarrusel(containerCarrusel);
