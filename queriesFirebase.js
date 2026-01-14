@@ -1,5 +1,16 @@
+import { setNewProject } from "./admin.js";
 import { db } from "./firebase.js";
-import { collection, getDocs, addDoc, serverTimestamp, query, orderBy, deleteDoc, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {
+    collection,
+    getDocs,
+    addDoc,
+    serverTimestamp,
+    query,
+    orderBy,
+    deleteDoc,
+    Timestamp,
+    setDoc, doc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 export async function getPerfilImages() {
     const querySnapshot = await getDocs(collection(db, "perfil"));
@@ -20,23 +31,23 @@ export async function getProjects() {
     return data;
 }
 
-export async function setProjects() {
+export async function setProjects(titulo, descripcion, destacado, fecha, imagen, link, lenguajeSelected) {
+    // 🔒 Blindaje
+    if (!(fecha instanceof Date)) {
+        console.error("fecha NO es Date:", fecha, typeof fecha);
+        return;
+    }
+
     const docRef = await addDoc(collection(db, "proyectos"),
         {
-            titulo: "Proyecto uno",
-            descripcion: "Contador básico para demostrar manejo de eventos",
-            image: "https://...",
-            links: "",
-            tecnologias: ["HTML", "CSS", "JavaScript"],
-            destacado: true,
-            fechaCreacion: "",
-            comentarios: [
-                {
-                    usuario: "A",
-                    texto: "Buen proyecto",
-                    fecha: ""
-                }
-            ]
+            titulo: titulo,
+            descripcion: descripcion,
+            image: imagen,
+            links: link,
+            tecnologias: lenguajeSelected,
+            destacado: destacado,
+            fechaCreacion: Timestamp.fromDate(fecha),
+
         }
 
     );
@@ -51,7 +62,7 @@ export async function addComments(texto, projectId) {
             texto,
             usuario: "Anon",
             fecha: serverTimestamp(),
-         
+
         }
     );
 }
@@ -61,7 +72,7 @@ export async function getComments(idPostComments) {
     const q = query(
         collection(db, "comentarios", idPostComments, "comments"),
         orderBy("fecha", "asc")
-    ); 
+    );
 
     const snapshot = await getDocs(q);
 
@@ -74,7 +85,7 @@ export async function getComments(idPostComments) {
 
 
 export async function addLike(postId, userId = "Anon") {
-    if (!postId) return; 
+    if (!postId) return;
     await setDoc(doc(db, "posts", postId, "likes", userId), {
         userId,
         fecha: serverTimestamp()
@@ -82,13 +93,14 @@ export async function addLike(postId, userId = "Anon") {
 }
 
 export async function removeLike(postId, userId = "Anon") {
-  await deleteDoc(doc(db, "posts", postId, "likes", userId));
+    await deleteDoc(doc(db, "posts", postId, "likes", userId));
 }
 
 
 export async function getLikes(postId) {
-  const likesCol = collection(db, "posts", postId, "likes");
-  const snapshot = await getDocs(likesCol);
-  const likes = snapshot.docs.map(doc => doc.data().userId);
-  return likes;
+    const likesCol = collection(db, "posts", postId, "likes");
+    const snapshot = await getDocs(likesCol);
+    const likes = snapshot.docs.map(doc => doc.data().userId);
+    return likes;
 }
+export default setNewProject
