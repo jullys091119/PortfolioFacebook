@@ -23,7 +23,7 @@ function GridImage(leftAside) {
 }
 
 function setGrid(containerGridBox) {
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 1; i++) {
         const imgGrid = document.createElement("img");
         const gridBox = document.createElement("div");
         gridBox.appendChild(imgGrid)
