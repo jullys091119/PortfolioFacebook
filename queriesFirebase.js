@@ -31,6 +31,18 @@ export async function getProjects() {
     return data;
 }
 
+
+export async function getGridImages() {
+    const querySnapshot = await getDocs(collection(db, "gridimages"));
+    let data = [];
+    querySnapshot.forEach((doc) => {
+        const dataImages = doc.data()
+        data.push(dataImages.images)
+    })
+
+    return data
+}
+
 export async function setProjects(titulo, descripcion, destacado, fecha, imagen, link, lenguajeSelected) {
     // 🔒 Blindaje
     if (!(fecha instanceof Date)) {
