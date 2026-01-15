@@ -1,4 +1,4 @@
-import { setNewProject } from "./admin.js";
+
 import { db } from "./firebase.js";
 import {
     collection,
@@ -103,4 +103,6 @@ export async function getLikes(postId) {
     const likes = snapshot.docs.map(doc => doc.data().userId);
     return likes;
 }
-export default setNewProject
+
+
+
